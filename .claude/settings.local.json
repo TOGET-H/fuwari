@@ -10,7 +10,8 @@
       "Bash(npm install *)",
       "Bash(pnpm add *)",
       "Bash(pnpm new-post *)",
-      "Bash(pnpm dev *)"
+      "Bash(pnpm dev *)",
+      "Bash(pnpm build *)"
     ]
   }
 }
