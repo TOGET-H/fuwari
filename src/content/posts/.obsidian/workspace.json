@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VUE八股.md",
+                "file": "HTML-CSS八股.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VUE八股"
+              "title": "HTML-CSS八股"
             }
           }
         ]
@@ -185,9 +185,12 @@
   },
   "active": "51f9c632243c7b86",
   "lastOpenFiles": [
-    "assest/images/封面/VUE.png",
-    "VUE八股.md",
+    "配置域名访问的一点学习.md.tmp.29320.11bd25813959",
     "JS八股.md",
+    "VUE八股.md",
+    "关于这个博客的想法.md",
+    "配置域名访问的一点学习.md",
+    "assest/images/封面/VUE.png",
     "HTML-CSS八股.md",
     "assest/images/封面/HTML.png",
     "assest/images/封面/image.png",
@@ -195,8 +198,6 @@
     "HTML/CSS八股.md",
     "HTML",
     "未命名.md",
-    "关于这个博客的想法.md",
-    "配置域名访问的一点学习.md",
     "项目拆解-旅行助手项目-项目总览.md",
     "assest/images/封面/travel-agent.png",
     "assest/images/配置域名访问的一点学习-1.png",
