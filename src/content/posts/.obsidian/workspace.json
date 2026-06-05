@@ -11,10 +11,14 @@
             "id": "51f9c632243c7b86",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "项目拆解-旅行助手项目-项目总览.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "项目拆解-旅行助手项目-项目总览"
             }
           }
         ]
@@ -181,17 +185,30 @@
   },
   "active": "8ea966b9d92a779b",
   "lastOpenFiles": [
-    "关于这个博客的想法.md.tmp.29320.83d66f04256b",
+    "关于这个博客的想法.md",
+    "assest/images/封面/travel-agent.png",
+    "assest/images/封面/image.png",
+    "assest/images/配置域名访问的一点学习-1.png",
+    "assest/images/QQ_1780643893882.png",
+    "assest/images/封面/16e0cde3a66c7a90eb74553b4b40520c.png",
+    "assest/images/配置域名访问的一点学习.png",
+    "项目拆解-旅行助手项目-项目总览.md",
+    "assest/images/封面",
+    "关于这个博客的想法.md.tmp.29320.c83cdd7b8800",
     "配置域名访问的一点学习.md",
+    "assest/16e0cde3a66c7a90eb74553b4b40520c.png",
+    "配置域名访问的一点学习.md.tmp.29320.6c01202bbd96",
+    "assest/images/表格_20260605.csv",
+    "assest/images",
+    "assest",
+    "未命名.canvas",
+    "关于这个博客的想法.md.tmp.29320.83d66f04256b",
     "spec/about.md",
     "spec",
-    "关于这个博客的想法.md",
     "2026-06-05.md",
-    "未命名.canvas",
     "未命名.md",
     "未命名.base",
     "未命名 1.base",
-    "未命名",
     "新建个人博客.md"
   ]
 }
