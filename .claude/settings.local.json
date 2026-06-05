@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Bash(pnpm install *)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(corepack enable *)",
+      "Bash(corepack prepare *)",
+      "Bash(npm install *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm new-post *)",
+      "Bash(pnpm dev *)"
+    ]
+  }
+}
