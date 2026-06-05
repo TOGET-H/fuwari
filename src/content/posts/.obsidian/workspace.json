@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目拆解-旅行助手项目-项目总览.md",
+                "file": "配置域名访问的一点学习.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "项目拆解-旅行助手项目-项目总览"
+              "title": "配置域名访问的一点学习"
             }
           }
         ]
@@ -183,8 +183,9 @@
       "bases:新建数据库": false
     }
   },
-  "active": "8ea966b9d92a779b",
+  "active": "51f9c632243c7b86",
   "lastOpenFiles": [
+    "项目拆解-旅行助手项目-项目总览.md",
     "关于这个博客的想法.md",
     "assest/images/封面/travel-agent.png",
     "assest/images/封面/image.png",
@@ -192,7 +193,6 @@
     "assest/images/QQ_1780643893882.png",
     "assest/images/封面/16e0cde3a66c7a90eb74553b4b40520c.png",
     "assest/images/配置域名访问的一点学习.png",
-    "项目拆解-旅行助手项目-项目总览.md",
     "assest/images/封面",
     "关于这个博客的想法.md.tmp.29320.c83cdd7b8800",
     "配置域名访问的一点学习.md",
