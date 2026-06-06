@@ -8,10 +8,10 @@ export type MusicTrack = {
 export const musicPlaylist: MusicTrack[] = [
 	// Put audio files in public/music, then update src to "/music/your-file.mp3".
 	// Example:
-	// {
-	// 	title: "Song Name",
-	// 	artist: "Artist",
-	// 	src: "/music/song-name.mp3",
-	// 	cover: "/music/song-cover.jpg",
-	// },
+	{
+		title: "在雨后醒来",
+		artist: "Artist",
+		src: "public\\music\\艾志恒Asen - 在雨后醒来(Explicit).mp3",
+		cover: "public\\music\\花.png",
+	},
 ];
