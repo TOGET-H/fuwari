@@ -5,7 +5,7 @@ import { onDestroy } from "svelte";
 
 const tracks = musicPlaylist;
 
-let audio: HTMLAudioElement | null = null;
+let audio: HTMLAudioElement | undefined;
 let activeIndex = 0;
 let isPlaying = false;
 let currentTime = 0;
@@ -16,6 +16,9 @@ let errorMessage = "";
 $: activeTrack = tracks[activeIndex];
 $: hasTracks = tracks.length > 0;
 $: progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+$: encodedSrc = activeTrack ? encodeURI(activeTrack.src) : "";
+$: encodedCover = activeTrack?.cover ? encodeURI(activeTrack.cover) : "";
+$: if (audio) audio.volume = volume;
 
 function formatTime(seconds: number) {
 	if (!Number.isFinite(seconds)) return "0:00";
@@ -27,21 +30,20 @@ function formatTime(seconds: number) {
 	return `${minutes}:${rest}`;
 }
 
-function bindAudio(node: HTMLAudioElement) {
-	audio = node;
-	audio.volume = volume;
-}
-
 async function play() {
-	if (!audio || !activeTrack) return;
+	if (!audio || !activeTrack) {
+		errorMessage = "播放器还没有准备好";
+		return;
+	}
 
 	try {
 		errorMessage = "";
+		audio.volume = volume;
 		await audio.play();
 		isPlaying = true;
-	} catch {
+	} catch (error) {
 		isPlaying = false;
-		errorMessage = "音频无法播放，请检查文件路径";
+		errorMessage = error instanceof Error ? error.message : "音频无法播放";
 	}
 }
 
@@ -63,20 +65,17 @@ function toggle() {
 function switchTrack(direction: number) {
 	if (!hasTracks) return;
 
-	const wasPlaying = isPlaying;
+	const shouldResume = isPlaying;
 	pause();
 	activeIndex = (activeIndex + direction + tracks.length) % tracks.length;
 	currentTime = 0;
 	duration = 0;
 	errorMessage = "";
 
-	if (audio) {
-		audio.load();
-	}
-
-	if (wasPlaying) {
-		setTimeout(() => void play(), 0);
-	}
+	queueMicrotask(() => {
+		audio?.load();
+		if (shouldResume) void play();
+	});
 }
 
 function updateProgress() {
@@ -99,27 +98,34 @@ function updateVolume() {
 	}
 }
 
+function handleCanPlay() {
+	errorMessage = "";
+	updateProgress();
+}
+
 function handleEnded() {
 	switchTrack(1);
 }
 
 function handleError() {
 	isPlaying = false;
-	errorMessage = "音频文件未找到";
+	const code = audio?.error?.code;
+	errorMessage = code ? `音频加载失败，错误码 ${code}` : "音频文件未找到";
 }
 
 onDestroy(() => {
 	pause();
-	audio = null;
+	audio = undefined;
 });
 </script>
 
 <div class="card-base music-player p-4">
 	{#if hasTracks}
 		<audio
-			bind:this={bindAudio}
-			src={activeTrack.src}
+			bind:this={audio}
+			src={encodedSrc}
 			preload="metadata"
+			on:canplay={handleCanPlay}
 			on:timeupdate={updateProgress}
 			on:loadedmetadata={updateProgress}
 			on:ended={handleEnded}
@@ -128,8 +134,8 @@ onDestroy(() => {
 
 		<div class="mb-3 flex items-start gap-3">
 			<div class="cover-box">
-				{#if activeTrack.cover}
-					<img src={activeTrack.cover} alt={activeTrack.title} />
+				{#if encodedCover}
+					<img src={encodedCover} alt={activeTrack.title} />
 				{:else}
 					<Icon icon="material-symbols:music-note-rounded" />
 				{/if}
