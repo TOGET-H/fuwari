@@ -59,57 +59,107 @@ const timeline = [
 ];
 
 const focusList = ["前端基础", "Vue / JS", "Node.js", "工程化", "AI 应用", "项目复盘"];
+const stackList = ["Astro", "Vue", "TypeScript", "Node.js", "Tailwind", "AI App"];
 ---
 
 <MainGridLayout title={i18n(I18nKey.about)} description="关于我">
-	<section class="card-base relative mb-4 overflow-hidden px-6 py-7 md:px-9 md:py-9">
-		<div class="absolute inset-x-0 top-0 h-1 bg-[var(--primary)]"></div>
-		<div class="grid gap-7 md:grid-cols-[10rem_auto] md:items-center">
-			<div class="relative mx-auto h-36 w-36 overflow-hidden rounded-2xl bg-black/5 shadow-sm dark:bg-white/10 md:h-40 md:w-40">
-				<ImageWrapper
-					src={profileConfig.avatar || ""}
-					alt="Profile image"
-					class="h-full w-full object-cover"
-				/>
-			</div>
+	<section class="about-tech-bg card-base relative mb-4 overflow-hidden">
+		<div class="tech-grid" aria-hidden="true"></div>
+		<div class="tech-scanline" aria-hidden="true"></div>
 
-			<div>
-				<div class="mb-3 inline-flex items-center gap-2 rounded-full bg-[oklch(0.95_0.03_var(--hue))] px-3 py-1 text-sm font-medium text-[var(--primary)] dark:bg-white/10">
-					<Icon name="material-symbols:bolt-rounded" class="text-lg" />
-					<span>保持学习，持续进步</span>
+		<div class="relative z-10 grid gap-7 px-6 py-7 md:grid-cols-[1fr_18rem] md:px-9 md:py-9">
+			<div class="min-w-0">
+				<div class="mb-5 flex flex-wrap items-center gap-2">
+					<span class="inline-flex items-center gap-2 rounded-md border border-black/10 bg-white/70 px-3 py-1.5 text-sm font-medium text-[var(--primary)] backdrop-blur dark:border-white/10 dark:bg-white/[0.06]">
+						<Icon name="material-symbols:bolt-rounded" class="text-lg" />
+						保持学习，持续进步
+					</span>
+					<span class="rounded-md border border-black/10 bg-white/50 px-3 py-1.5 font-mono text-xs text-50 dark:border-white/10 dark:bg-white/[0.04]">
+						status: building
+					</span>
 				</div>
-				<h1 class="mb-3 text-3xl font-bold leading-tight text-90 md:text-4xl">
+
+				<h1 class="mb-4 max-w-2xl text-3xl font-bold leading-tight text-90 md:text-5xl">
 					你好，我是{profileConfig.name}
 				</h1>
 				<p class="max-w-2xl text-base leading-8 text-75 md:text-lg">
 					一名正在成长中的计算机研究生。目标是成为能独立解决问题的全栈开发者：
 					写得出清晰的页面，也理解背后的系统；做得出可运行的项目，也愿意长期打磨基本功。
 				</p>
-				<div class="mt-5 flex flex-wrap gap-2">
+
+				<div class="mt-6 flex flex-wrap gap-2">
 					{focusList.map((item) => (
-						<span class="rounded-lg bg-black/[0.04] px-3 py-1.5 text-sm font-medium text-black/70 transition dark:bg-white/[0.08] dark:text-white/70">
+						<span class="rounded-md border border-black/10 bg-white/60 px-3 py-1.5 text-sm font-medium text-black/70 backdrop-blur transition dark:border-white/10 dark:bg-white/[0.06] dark:text-white/70">
 							{item}
 						</span>
 					))}
 				</div>
 			</div>
+
+			<aside class="tech-console self-stretch rounded-lg border border-black/10 bg-white/75 p-4 shadow-sm backdrop-blur dark:border-white/10 dark:bg-black/20">
+				<div class="mb-4 flex items-center justify-between border-b border-black/10 pb-3 dark:border-white/10">
+					<div class="flex gap-1.5" aria-hidden="true">
+						<span class="h-2.5 w-2.5 rounded-full bg-[oklch(0.68_0.18_25)]"></span>
+						<span class="h-2.5 w-2.5 rounded-full bg-[oklch(0.78_0.16_80)]"></span>
+						<span class="h-2.5 w-2.5 rounded-full bg-[oklch(0.72_0.15_155)]"></span>
+					</div>
+					<span class="font-mono text-xs text-50">profile.ts</span>
+				</div>
+
+				<div class="mb-4 flex items-center gap-4">
+					<div class="h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-black/10 bg-black/5 dark:border-white/10 dark:bg-white/10">
+						<ImageWrapper
+							src={profileConfig.avatar || ""}
+							alt="Profile image"
+							class="h-full w-full object-cover"
+						/>
+					</div>
+					<div class="min-w-0">
+						<div class="truncate text-lg font-bold text-90">{profileConfig.name}</div>
+						<div class="mt-1 font-mono text-xs text-50">role: student_developer</div>
+					</div>
+				</div>
+
+				<div class="space-y-2 font-mono text-xs leading-6 text-75">
+					<div><span class="text-[var(--primary)]">const</span> goal = "Full-stack Developer";</div>
+					<div><span class="text-[var(--primary)]">const</span> mode = "learn · build · review";</div>
+					<div><span class="text-[var(--primary)]">const</span> attitude = "sunny and reliable";</div>
+				</div>
+			</aside>
 		</div>
 	</section>
 
 	<section class="mb-4 grid gap-4 md:grid-cols-3">
 		{highlights.map((item) => (
-			<div class="card-base px-6 py-5">
-				<div class="mb-2 text-3xl font-bold text-[var(--primary)]">{item.value}</div>
+			<div class="card-base border border-black/[0.03] px-6 py-5 dark:border-white/[0.05]">
+				<div class="mb-2 font-mono text-3xl font-bold text-[var(--primary)]">{item.value}</div>
 				<div class="mb-1 font-bold text-90">{item.label}</div>
 				<div class="text-sm leading-6 text-75">{item.note}</div>
 			</div>
 		))}
 	</section>
 
+	<section class="card-base mb-4 overflow-hidden">
+		<div class="border-b border-dashed border-black/10 px-6 py-4 dark:border-white/10 md:px-9">
+			<div class="flex items-center gap-3">
+				<Icon name="material-symbols:terminal-rounded" class="text-2xl text-[var(--primary)]" />
+				<h2 class="text-xl font-bold text-90">技术栈与关注方向</h2>
+			</div>
+		</div>
+		<div class="grid gap-3 px-6 py-5 md:grid-cols-3 md:px-9">
+			{stackList.map((item) => (
+				<div class="flex items-center justify-between rounded-md border border-black/10 bg-black/[0.02] px-4 py-3 dark:border-white/10 dark:bg-white/[0.04]">
+					<span class="font-medium text-75">{item}</span>
+					<span class="h-2 w-2 rounded-full bg-[oklch(0.72_0.15_155)]"></span>
+				</div>
+			))}
+		</div>
+	</section>
+
 	<section class="mb-4 grid gap-4 md:grid-cols-2">
 		{qualities.map((item) => (
-			<div class="card-base px-6 py-5">
-				<div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[oklch(0.95_0.03_var(--hue))] text-[var(--primary)] dark:bg-white/10">
+			<div class="card-base border border-black/[0.03] px-6 py-5 dark:border-white/[0.05]">
+				<div class="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[oklch(0.95_0.03_var(--hue))] text-[var(--primary)] dark:bg-white/10">
 					<Icon name={item.icon} class="text-2xl" />
 				</div>
 				<h2 class="mb-2 text-xl font-bold text-90">{item.title}</h2>
@@ -130,7 +180,7 @@ const focusList = ["前端基础", "Vue / JS", "Node.js", "工程化", "AI 应�
 		<div class="space-y-5">
 			{timeline.map((item) => (
 				<div class="grid gap-3 border-l border-dashed border-black/10 pl-5 dark:border-white/15 md:grid-cols-[5rem_auto] md:border-l-0 md:pl-0">
-					<div class="text-sm font-bold text-[var(--primary)]">{item.time}</div>
+					<div class="font-mono text-sm font-bold text-[var(--primary)]">{item.time}</div>
 					<div>
 						<div class="mb-1 font-bold text-90">{item.title}</div>
 						<div class="leading-7 text-75">{item.desc}</div>
@@ -149,10 +199,64 @@ const focusList = ["前端基础", "Vue / JS", "Node.js", "工程化", "AI 应�
 					更扎实的代码和更坚定的方向。
 				</p>
 			</div>
-			<div class="flex shrink-0 items-center gap-2 rounded-xl bg-black/[0.04] px-4 py-3 font-bold text-[var(--primary)] dark:bg-white/[0.08]">
+			<div class="flex shrink-0 items-center gap-2 rounded-lg border border-black/10 bg-black/[0.04] px-4 py-3 font-bold text-[var(--primary)] dark:border-white/10 dark:bg-white/[0.08]">
 				<Icon name="material-symbols:rocket-launch-outline-rounded" class="text-2xl" />
 				<span>向前走，别停下</span>
 			</div>
 		</div>
 	</section>
 </MainGridLayout>
+
+<style>
+	.about-tech-bg {
+		background:
+			linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.72)),
+			var(--card-bg);
+	}
+
+	:global(.dark) .about-tech-bg {
+		background:
+			linear-gradient(135deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)),
+			var(--card-bg);
+	}
+
+	.tech-grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(to right, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+		background-size: 28px 28px;
+		mask-image: linear-gradient(to bottom right, black, transparent 78%);
+		opacity: 0.42;
+	}
+
+	:global(.dark) .tech-grid {
+		background-image:
+			linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+		opacity: 0.34;
+	}
+
+	.tech-scanline {
+		position: absolute;
+		inset: 0;
+		background: repeating-linear-gradient(
+			to bottom,
+			transparent,
+			transparent 9px,
+			rgba(0, 0, 0, 0.035) 10px
+		);
+		opacity: 0.24;
+		pointer-events: none;
+	}
+
+	:global(.dark) .tech-scanline {
+		background: repeating-linear-gradient(
+			to bottom,
+			transparent,
+			transparent 9px,
+			rgba(255, 255, 255, 0.04) 10px
+		);
+	}
+</style>
