@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+
+const skills = ["Astro", "Vue", "TypeScript", "Node.js", "AI App", "Engineering"];
+---
+
+<section class="home-hero card-base relative mb-4 overflow-hidden px-6 py-7 md:px-9 md:py-8">
+	<div class="home-hero-grid" aria-hidden="true"></div>
+	<div class="relative z-10 grid gap-6 md:grid-cols-[1fr_17rem] md:items-center">
+		<div class="min-w-0">
+			<div class="mb-4 inline-flex items-center gap-2 rounded-md border border-black/10 bg-white/70 px-3 py-1.5 text-sm font-medium text-[var(--primary)] backdrop-blur dark:border-white/10 dark:bg-white/[0.06]">
+				<Icon name="material-symbols:terminal-rounded" class="text-lg" />
+				<span>learn · build · review</span>
+			</div>
+			<h1 class="mb-3 text-3xl font-bold leading-tight text-90 md:text-4xl">
+				记录技术成长，也记录把想法做成项目的过程
+			</h1>
+			<p class="max-w-2xl leading-7 text-75">
+				这里整理前端、工程化、Node.js 和 AI 应用相关的学习笔记与项目复盘。
+				目标是持续打磨基础，做出可靠、清晰、能交付的作品。
+			</p>
+		</div>
+
+		<div class="rounded-lg border border-black/10 bg-white/70 p-4 font-mono text-xs leading-6 text-75 shadow-sm backdrop-blur dark:border-white/10 dark:bg-black/20">
+			<div class="mb-3 flex items-center justify-between border-b border-black/10 pb-2 dark:border-white/10">
+				<span class="text-[var(--primary)]">profile.config</span>
+				<span class="text-50">active</span>
+			</div>
+			<div><span class="text-[var(--primary)]">role</span>: "student developer"</div>
+			<div><span class="text-[var(--primary)]">goal</span>: "full-stack"</div>
+			<div><span class="text-[var(--primary)]">focus</span>: "practical projects"</div>
+		</div>
+	</div>
+
+	<div class="relative z-10 mt-6 flex flex-wrap gap-2">
+		{skills.map((skill) => (
+			<span class="rounded-md border border-black/10 bg-white/60 px-3 py-1.5 text-sm font-medium text-black/70 backdrop-blur transition dark:border-white/10 dark:bg-white/[0.06] dark:text-white/70">
+				{skill}
+			</span>
+		))}
+	</div>
+</section>
+
+<style>
+	.home-hero {
+		background:
+			linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72)),
+			var(--card-bg);
+	}
+
+	:global(.dark) .home-hero {
+		background:
+			linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+			var(--card-bg);
+	}
+
+	.home-hero-grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(to right, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+		background-size: 28px 28px;
+		mask-image: linear-gradient(to bottom right, black, transparent 78%);
+		opacity: 0.38;
+	}
+
+	:global(.dark) .home-hero-grid {
+		background-image:
+			linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+		opacity: 0.32;
+	}
+</style>

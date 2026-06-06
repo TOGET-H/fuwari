@@ -120,6 +120,42 @@
     background-color: var(--selection-bg)
 }
 
+body {
+    position: relative;
+    background:
+        linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.35) 42%, transparent 100%),
+        var(--page-bg);
+}
+
+:root.dark body {
+    background:
+        linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.025) 42%, transparent 100%),
+        var(--page-bg);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+        linear-gradient(to right, transparent calc(50% - 1px), rgba(0, 0, 0, 0.035) 50%, transparent calc(50% + 1px));
+    background-size: 32px 32px, 32px 32px, 100% 100%;
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+    opacity: 0.58;
+}
+
+:root.dark body::before {
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(to right, transparent calc(50% - 1px), rgba(255, 255, 255, 0.035) 50%, transparent calc(50% + 1px));
+    opacity: 0.42;
+}
+
 .dash-line {
     position: relative;
 }
