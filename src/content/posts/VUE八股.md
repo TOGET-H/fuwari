@@ -1,7 +1,8 @@
 ---
 title: VUE八股
-published: 2026-05-15
-description: ""
+published: 2026-02-18
+updated: 2026-02-24
+description: "Vue 核心知识整理：响应式、组件通信、生命周期、路由和工程实践"
 image: assest/images/封面/VUE.png
 tags:
   - 前端

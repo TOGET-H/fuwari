@@ -1,7 +1,8 @@
 ---
 title: JS八股
-published: 2026-06-05
-description: ""
+published: 2026-02-03
+updated: 2026-02-08
+description: "JavaScript 基础与高频面试题复盘，从类型、作用域、闭包到异步机制"
 image: assest/images/封面/JS.png
 tags:
   - 前端

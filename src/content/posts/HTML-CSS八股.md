@@ -1,7 +1,8 @@
 ---
 title: HTML-CSS八股
-published: 2026-06-05
-description: ""
+published: 2026-01-19
+updated: 2026-01-22
+description: "HTML 与 CSS 高频问题整理，重点放在布局、语义化、盒模型和浏览器渲染理解"
 image: assest/images/封面/HTML.png
 tags:
   - 前端

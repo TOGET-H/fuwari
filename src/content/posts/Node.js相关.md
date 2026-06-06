@@ -1,7 +1,8 @@
 ---
 title: Node.js相关
-published: 2026-06-06
-description: ""
+published: 2026-03-08
+updated: 2026-03-12
+description: "Node.js 后端基础复盘，围绕运行时、模块机制、事件循环和接口开发展开"
 image: ""
 tags:
   - 八股
