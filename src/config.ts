@@ -49,7 +49,7 @@ export const navBarConfig: NavBarConfig = {
 			url: "https://github.com/TOGET-H", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
 		},
-				{
+		{
 			name: "科研友站：元坤的主页",
 			url: "https://yuankun-xia.github.io/paper-home/", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
