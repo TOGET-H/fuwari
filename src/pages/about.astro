@@ -1,25 +1,158 @@
 ---
-
-import { getEntry, render } from "astro:content";
-import Markdown from "@components/misc/Markdown.astro";
+import ImageWrapper from "@components/misc/ImageWrapper.astro";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { profileConfig } from "../config";
+import { Icon } from "astro-icon/components";
 
-const aboutPost = await getEntry("spec", "about");
+const highlights = [
+	{ value: "CS", label: "计算机方向", note: "持续补齐基础与工程能力" },
+	{ value: "FE", label: "前端开发", note: "把想法做成真实可用的产品" },
+	{ value: "AI", label: "智能应用", note: "关注 AI 与业务场景结合" },
+];
 
-if (!aboutPost) {
-	throw new Error("About page content not found");
-}
+const qualities = [
+	{
+		icon: "material-symbols:wb-sunny-outline-rounded",
+		title: "阳光主动",
+		desc: "遇到问题先拆解、再验证，把复杂任务一步一步推进到可落地的结果。",
+	},
+	{
+		icon: "material-symbols:trending-up-rounded",
+		title: "长期上进",
+		desc: "每天给自己留出固定时间学习、复盘和输出，让能力增长有痕迹。",
+	},
+	{
+		icon: "material-symbols:construction-rounded",
+		title: "动手能力",
+		desc: "喜欢通过项目学习技术，从需求、页面、接口到部署都尽量亲自跑通。",
+	},
+	{
+		icon: "material-symbols:groups-outline-rounded",
+		title: "开放协作",
+		desc: "愿意沟通、记录和分享，也重视和优秀的人一起把事情做扎实。",
+	},
+];
 
-const { Content } = await render(aboutPost);
+const timeline = [
+	{
+		time: "现在",
+		title: "计算机研究生在读",
+		desc: "围绕前端工程、AI 应用和系统能力持续训练，努力把每一次学习都沉淀成作品。",
+	},
+	{
+		time: "正在做",
+		title: "全栈开发目标",
+		desc: "从前端体验出发，逐步补齐后端、数据库、工程化和部署能力。",
+	},
+	{
+		time: "曾经",
+		title: "电工背景",
+		desc: "带着工程现场的务实习惯进入软件开发，重视可靠性、细节和问题闭环。",
+	},
+	{
+		time: "长期",
+		title: "保持热爱",
+		desc: "喜欢技术、摄影和记录生活，希望成为一个可靠、明亮、持续成长的人。",
+	},
+];
+
+const focusList = ["前端基础", "Vue / JS", "Node.js", "工程化", "AI 应用", "项目复盘"];
 ---
-<MainGridLayout title={i18n(I18nKey.about)} description={i18n(I18nKey.about)}>
-    <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
-        <div class="card-base z-10 px-9 py-6 relative w-full ">
-            <Markdown class="mt-2">
-                <Content />
-            </Markdown>
-        </div>
-    </div>
+
+<MainGridLayout title={i18n(I18nKey.about)} description="关于我">
+	<section class="card-base relative mb-4 overflow-hidden px-6 py-7 md:px-9 md:py-9">
+		<div class="absolute inset-x-0 top-0 h-1 bg-[var(--primary)]"></div>
+		<div class="grid gap-7 md:grid-cols-[10rem_auto] md:items-center">
+			<div class="relative mx-auto h-36 w-36 overflow-hidden rounded-2xl bg-black/5 shadow-sm dark:bg-white/10 md:h-40 md:w-40">
+				<ImageWrapper
+					src={profileConfig.avatar || ""}
+					alt="Profile image"
+					class="h-full w-full object-cover"
+				/>
+			</div>
+
+			<div>
+				<div class="mb-3 inline-flex items-center gap-2 rounded-full bg-[oklch(0.95_0.03_var(--hue))] px-3 py-1 text-sm font-medium text-[var(--primary)] dark:bg-white/10">
+					<Icon name="material-symbols:bolt-rounded" class="text-lg" />
+					<span>保持学习，持续进步</span>
+				</div>
+				<h1 class="mb-3 text-3xl font-bold leading-tight text-90 md:text-4xl">
+					你好，我是{profileConfig.name}
+				</h1>
+				<p class="max-w-2xl text-base leading-8 text-75 md:text-lg">
+					一名正在成长中的计算机研究生。目标是成为能独立解决问题的全栈开发者：
+					写得出清晰的页面，也理解背后的系统；做得出可运行的项目，也愿意长期打磨基本功。
+				</p>
+				<div class="mt-5 flex flex-wrap gap-2">
+					{focusList.map((item) => (
+						<span class="rounded-lg bg-black/[0.04] px-3 py-1.5 text-sm font-medium text-black/70 transition dark:bg-white/[0.08] dark:text-white/70">
+							{item}
+						</span>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mb-4 grid gap-4 md:grid-cols-3">
+		{highlights.map((item) => (
+			<div class="card-base px-6 py-5">
+				<div class="mb-2 text-3xl font-bold text-[var(--primary)]">{item.value}</div>
+				<div class="mb-1 font-bold text-90">{item.label}</div>
+				<div class="text-sm leading-6 text-75">{item.note}</div>
+			</div>
+		))}
+	</section>
+
+	<section class="mb-4 grid gap-4 md:grid-cols-2">
+		{qualities.map((item) => (
+			<div class="card-base px-6 py-5">
+				<div class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[oklch(0.95_0.03_var(--hue))] text-[var(--primary)] dark:bg-white/10">
+					<Icon name={item.icon} class="text-2xl" />
+				</div>
+				<h2 class="mb-2 text-xl font-bold text-90">{item.title}</h2>
+				<p class="leading-7 text-75">{item.desc}</p>
+			</div>
+		))}
+	</section>
+
+	<section class="card-base mb-4 px-6 py-6 md:px-9">
+		<div class="mb-5 flex items-center gap-3">
+			<div class="h-10 w-1 rounded-full bg-[var(--primary)]"></div>
+			<div>
+				<h2 class="text-2xl font-bold text-90">成长轨迹</h2>
+				<p class="mt-1 text-sm text-75">把努力变成每天都能看见的进度。</p>
+			</div>
+		</div>
+
+		<div class="space-y-5">
+			{timeline.map((item) => (
+				<div class="grid gap-3 border-l border-dashed border-black/10 pl-5 dark:border-white/15 md:grid-cols-[5rem_auto] md:border-l-0 md:pl-0">
+					<div class="text-sm font-bold text-[var(--primary)]">{item.time}</div>
+					<div>
+						<div class="mb-1 font-bold text-90">{item.title}</div>
+						<div class="leading-7 text-75">{item.desc}</div>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="card-base px-6 py-6 md:px-9">
+		<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+			<div>
+				<h2 class="mb-2 text-2xl font-bold text-90">我的状态</h2>
+				<p class="max-w-2xl leading-7 text-75">
+					认真学习，认真做项目，认真生活。希望每一次打开博客，都能看到比昨天更清楚的思考、
+					更扎实的代码和更坚定的方向。
+				</p>
+			</div>
+			<div class="flex shrink-0 items-center gap-2 rounded-xl bg-black/[0.04] px-4 py-3 font-bold text-[var(--primary)] dark:bg-white/[0.08]">
+				<Icon name="material-symbols:rocket-launch-outline-rounded" class="text-2xl" />
+				<span>向前走，别停下</span>
+			</div>
+		</div>
+	</section>
 </MainGridLayout>
