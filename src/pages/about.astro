@@ -1,10 +1,10 @@
 ---
 import ImageWrapper from "@components/misc/ImageWrapper.astro";
+import { Icon } from "astro-icon/components";
+import { profileConfig } from "../config";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
-import { profileConfig } from "../config";
-import { Icon } from "astro-icon/components";
 
 const highlights = [
 	{ value: "CS", label: "计算机方向", note: "持续补齐基础与工程能力" },
@@ -58,8 +58,15 @@ const timeline = [
 	},
 ];
 
-const focusList = ["前端基础", "Vue / JS", "Node.js", "工程化", "AI 应用", "项目复盘"];
-const stackList = ["Astro", "Vue", "TypeScript", "Node.js", "Tailwind", "AI App"];
+const focusList = [
+	"前端基础",
+	"Vue / JS",
+	"Node.js",
+	"工程化",
+	"AI 应用",
+	"项目复盘",
+];
+const stackList = ["Java", "Vue", "TypeScript", "Node.js", "Python", "AI App"];
 ---
 
 <MainGridLayout title={i18n(I18nKey.about)} description="关于我">
