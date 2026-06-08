@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "项目拆解-智能旅游助手-前端解析-相关100题.md",
+                "file": "MongoDB的总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "项目拆解-智能旅游助手-前端解析-相关100题"
+              "title": "MongoDB的总结"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a4b10e350f6737b4",
@@ -185,13 +186,13 @@
   },
   "active": "51f9c632243c7b86",
   "lastOpenFiles": [
+    "项目拆解-智能旅游助手-前端解析-相关100题.md",
     "阶段复盘-从基础到项目的学习路线.md",
     "AI旅行助手项目中的流式响应理解.md",
     "一次接口联调问题的排查记录.md",
     "前端项目目录结构应该怎么设计.md",
     "从零搭建个人技术博客的复盘.md",
     "项目拆解-智能旅游助手-前端解析-工程化构建.md",
-    "项目拆解-智能旅游助手-前端解析-相关100题.md",
     "项目拆解-智能旅游助手-前端解析.md",
     "项目拆解-旅行助手项目-项目总览.md",
     "Node.js相关.md",
